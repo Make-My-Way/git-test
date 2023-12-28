@@ -1,0 +1,19 @@
+header.header
+  .header__wrap
+    a.header__logo(href="./index.html")
+      img.header__logo__img(src="./img/logo.svg" alt="ポートフォリオ")
+
+    .header__nav
+      button.header__hamburger(type="button")
+        span.header__hamburger--bar
+        span.header__hamburger--bar
+        span.header__hamburger--bar
+
+      nav.header__gnav
+        ul.header__gnav__list
+          li.header__gnav__list--item
+            a.header__gnav__link.header__gnav__link--active(href=".") ホーム
+          li.header__gnav__list--item
+            a.header__gnav__link(href=".") メッセージ
+          li.header__gnav__list--item
+            a.header__gnav__link(href=".") 会社概要

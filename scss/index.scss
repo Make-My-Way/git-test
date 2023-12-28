@@ -1,0 +1,306 @@
+@charset "utf-8";
+
+* {
+  -webkit-tap-highlight-color:rgba(0,0,0,0);/* クリック時に青い四角は表示されたが、これで無効化できた。cursor: pointer;がないと適用されないらしい。 */
+}
+
+/* Sass変数の設定 */
+$maincolor: #dd1b57;
+$linkcolor: #349bf4;
+$text-color: #333;
+/* CSS変数の使用例
+a {
+  text-decoration: underline;
+  color: $maincolor;
+}　　の様に指定する */
+
+
+/* リセットCSSの内容を更に使いやすく設定 */
+/* デフォルト設定。適宜変更する */
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+body {
+  font-size: 100%;
+  font-family: "Roboto",  Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  /* "Noto Sans JP"がfont weightに悪さしてた。　こんなに指定する必要があるのか */
+  color: var(--text-color);
+  line-height: 1.5;
+  background-color: #fff;
+}
+/* ラインハイトは1.5にしておくといいかも。やっぱり1がいいかも */
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  font-style: italic;
+  background-repeat: no-repeat;
+  background-size: cover;
+  shape-margin: 0.75rem;
+  /*参照 https://coliss.com/articles/build-websites/operation/css/sensible-defaults-for-img-elements.html */
+}
+
+button, input, select, textarea {
+  border: solid 1px #C8C8C8;
+}
+
+// PCヘッダー
+.header__wrap {
+  height: 90px;
+  margin: 0 auto;
+  padding: 30px 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* 自分のパソコンは1920pxの為、1440pxでmax-widthを指定してしまうと反映時に誤差が生じる */
+
+  background-color:  #ef8b8b;
+}
+
+.header__logo {
+  line-height: 1;
+}
+
+.header__gnav__list {
+  display: flex;
+  column-gap: 30px;
+  align-items: center;
+
+  &--item {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  }
+}
+
+.header__gnav__link--active {
+color: $linkcolor;
+}
+
+.header__hamburger {
+  display: none;
+  // ↑PC版では非表示
+}
+
+
+// PCフッターここから
+.footer {
+  height: 164px;
+  background-color: $maincolor;
+  margin-top: 100px;
+  padding-top: 61px;
+
+  &__wrap {
+    max-width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left:15px;
+  }
+
+  &__gnav {
+    margin-bottom: 18px;
+    color: $text-color;  
+
+    &__list {
+      display: flex;
+      column-gap: 50px;
+      align-items: center;
+      
+      &--item {
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 1;
+        letter-spacing: 0.05em;
+      }
+    }
+
+    &__link--active {
+      color: #FFFFFF;
+    }
+  }
+
+  &__copyright {
+    letter-spacing: 0.03em;
+    color: #FFFFFF;
+  }
+}
+
+
+
+
+/* モバイルここから */
+@media (max-width: 767px) {
+
+  //spヘッダー 　ハンバーガーメニュー込み
+  .header__wrap {
+    height: 60px;
+    padding: 20px 0 20px 20px;
+    /* position: relative;での指定はやめてpaddingでハンバーガーメニューの位置を指定した。ハンバーガーバーのフレックスを外して位置指定して×マークにしたい為 */
+
+    position: fixed;
+    background-color: #ef8b8b;
+    width: 100vw;
+    z-index: 50;
+    /* ヘッダーを固定したい場合はここで調整 */
+  }
+
+  .gnav__link--active {
+    color: #EF90A4;
+  }
+
+  .header__hamburger {
+    /* position: absolute;
+    top: 0;
+    right: 0; これでインナーを基に画面右上に配置したが、バーをフレックス指定せざるを得なくなったのでやめた。このままだとz-indexが効かなくなったので、position:relativeを適用しz-indexを適用させると共に、バーもフレックスをやめた*/
+    display: block;/* これでnoneが解除されて表示される */
+
+    position: relative;
+    z-index: 200;/* これで最前面にした */
+    
+    /*  下記でもバーの指定はできるが、×マークにする際にフレックスが邪魔する
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 8px;/* カンプで確認した */
+
+    width: 60px;
+    height: 60px;
+
+    border: none;
+    border-radius: 0;
+    background: none;
+    background-color: $maincolor;
+    
+    cursor: pointer;
+    appearance: none;
+    outline: none;
+    
+    &--bar {
+      // display: block;/*これいる？確認する  */
+
+      /*
+      width: 53%;
+      /フレックス指定でバー位置を指定した際に用いた。カンプから％を計算した */
+      height: 3px;
+      background-color: #fff;
+      border-radius: 4px;
+
+      transition: all 1.0s;
+      /* これで動きの詳細を指定した */
+    }
+
+    &--bar:nth-child(1) {
+      position: absolute;
+      top: 22px;
+      right: 17px;
+      left: 17px;
+    }
+
+    &--bar:nth-child(2) {
+      position: absolute;
+      top: 30px;
+      right: 17px;
+      left: 17px;
+    }
+
+    &--bar:nth-child(3) {
+      position: absolute;
+      top: 38px;
+      right: 17px;
+      left: 17px;
+    }
+
+    /* ×マークのスタイル */
+    &--bar.is-show:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+      /* 8pxはカンプから計算し、1・3が中心で重なる様にした */
+    }
+
+    &--bar.is-show:nth-child(2) {
+      opacity: 0;
+      /* 不透明度 */
+    }
+
+    &--bar.is-show:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+  }
+
+    /* メニューを開いた時の状態 */
+  .header__gnav__list {
+    width: 53%;
+    height: 100%;
+    background-color: $maincolor;
+    /*赤い色の部分  */
+
+    position: fixed;
+    top: 0;
+    right: -120%;/* 画面外に配置 */
+    bottom: 0;
+    z-index: 100;
+    /* 固定する。fixedすることでブラウ基準となり、レイアウトから除外され要素は浮いた状態になる。その為、他の要素は詰めて表示される。 */
+
+    flex-direction: column;
+    padding-top: 96px;
+    /* メニューの配置 */
+
+    visibility: hidden;
+    opacity: 0;
+    /* これで一旦非表示。
+    display:noneを使ってしまうと、使った要素にtransitionが適用されなくなる。*/
+
+    transition: all 1.0s;
+    /* 動きをつけた。is-showが付与されているclassに動きをつけると、is-showの時のみ(今回の場合開く時のみ適用されてしまうので、大元で動きのcssを付与すればオープン・クローズ時に適用される)*/
+
+    &--item {
+      margin-bottom: 28px;
+      color: #fff;
+    }
+  }
+
+  .header__gnav__list.is-show {
+    /* これでjsと連動して表示される。 */
+
+    right: 0; /* 画面内に配置 */
+
+    visibility: visible;
+    opacity: 1;
+    /* ↑これで再表示。
+    display:noneを使ってしまうと、使った要素にtransitionが適用されなくなる。 */
+  }
+
+  // SPフッターここから
+  .footer {
+    height: 119px;
+    margin-top: 60px;
+    padding-top: 41px;
+
+    &__inner {
+      margin-left: auto;
+      margin-right: auto;
+      /* ここでのmax-widthはいらないかな(元々367で入れていた為記載) 。wrapperと合わせたい為*/
+    }
+
+    &__gnav {
+      margin-bottom: 20px;
+
+      &__list {
+        column-gap: 35px;
+      }
+
+      &--item {
+        font-size: 12px;
+      }
+    }
+  }
+}

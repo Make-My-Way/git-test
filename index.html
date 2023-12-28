@@ -24,13 +24,39 @@
     <!-- CSSファイルのリンク-->
     <link href="../css/index.css" rel="stylesheet">
     <!-- JavaScriptファイルのリンク-->
-    <script src="../js/common.js"></script>
+    <script src="../js/index.js"></script>
     <!-- ファビコンの指定-->
     <link rel="icon" type="image/png" href="./icon-192x192.png">
     <link rel="apple-touch-icon" type="image/png" href="./apple-touch-icon-180x180.png">
     <link rel="icon" href="./favicon.ico">
   </head>
   <body> 
+    <header class="header">
+      <div class="header__wrap"><a class="header__logo" href="./index.html"><img class="header__logo__img" src="./img/logo.svg" alt="ポートフォリオ"></a>
+        <div class="header__nav">
+          <button class="header__hamburger" type="button"><span class="header__hamburger--bar"></span><span class="header__hamburger--bar"></span><span class="header__hamburger--bar"></span></button>
+          <nav class="header__gnav">
+            <ul class="header__gnav__list">
+              <li class="header__gnav__list--item"><a class="header__gnav__link header__gnav__link--active" href=".">ホーム</a></li>
+              <li class="header__gnav__list--item"><a class="header__gnav__link" href=".">メッセージ</a></li>
+              <li class="header__gnav__list--item"><a class="header__gnav__link" href=".">会社概要</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
     <main></main>
+    <footer class="footer">
+      <div class="footer__wrap">
+        <nav class="footer__gnav">
+          <ul class="footer__gnav__list">
+            <li class="footer__gnav__list--item"><a class="footer__gnav__link footer__gnav__link--active" href=".">ホーム</a></li>
+            <li class="footer__gnav__list--item"><a class="footer__gnav__link" href=".">メッセージ</a></li>
+            <li class="footer__gnav__list--item"><a class="footer__gnav__link" href=".">会社概要</a></li>
+          </ul>
+        </nav>
+        <p class="footer__copyright"><small>&copy;START</small></p>
+      </div>
+    </footer>
   </body>
 </html>
