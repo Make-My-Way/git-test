@@ -102,6 +102,8 @@ button, input, select, textarea {
           justify-content: center;
   margin: 121px auto 10px;
   background-color: lightcyan;
+  position: relative;
+  z-index: 2;
 }
 
 .menu__list__item__link {
@@ -114,11 +116,12 @@ button, input, select, textarea {
 }
 .menu__list__drop-menu {
   position: absolute;
-  top: 256px;
+  top: auto;
   -webkit-transition: all 1s;
   transition: all 1s;
   visibility: hidden;
   opacity: 0;
+  z-index: 3;
 }
 .menu__list__drop-menu__item--link {
   -webkit-transition: all 0.3s;

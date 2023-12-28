@@ -98,11 +98,14 @@ color: $linkcolor;
   justify-content: center;
   margin: 121px auto 10px;
   background-color: lightcyan;
+
+  position: relative;
+  z-index: 2;// これで少し浮かせた存在にし、ドロップダウンメニューがレイアウトに影響しない様にする
 }
 
 .menu__list {
   &__item__link {
-    display: block;
+    display: block; // これでpaddingが効く様になる
     padding: 10px 20px;  
   }
 
@@ -112,38 +115,33 @@ color: $linkcolor;
   }
 
   &__drop-menu {
-    position: absolute;
-    top: 256px;// topなくても良さそうだけど、位置指定ができなかった場合の為に記載しておく
-    transition: all 1.0s;  
+    position: absolute;// これでmenu__listから省いた存在になる(listのmargin/paddingとかがlist単位でのみ計算が走る)
+    top: auto;// 初期値がautoではあるが、念の為入力。autoにすることで親のbottom基軸となる為、真下に展開される。
+    // 参考URL　https://developer.mozilla.org/ja/docs/Web/CSS/top
+    transition: all 1.0s;// ドロップダウンメニューが開く時の動き指定
     
     visibility: hidden;
     opacity: 0;
     // これで一旦非表示。
-
+    z-index: 3;// これでメニューよりも浮かせて、よりレイアウトに影響しないにした
 
     &__item--link {
       // background-color: #ebebeb;　非表示前の確認用
-      transition: all 0.3s;
+      transition: all 0.3s;// ホバーした際の色付けの動き指定
       padding: 5px 20px;
     }
 
     &__item--link:hover {
       background-color: lightcyan;
     }
-
-    // &__item--link.is-show {
-    //   display: block;
-    //   background-color: #ebebeb;
-    // }
   }
 
   &__drop-menu.is-show {
     visibility: visible;
     opacity: 1;
     // ↑これで再表示。
-
-    background-color: #ebebeb;
-
+    background-color: #ebebeb;// 表示された際の背景色を指定
+    // z-indexも効いていること確認済
   }
 }
 
