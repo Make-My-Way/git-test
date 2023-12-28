@@ -94,10 +94,10 @@ button, input, select, textarea {
 }
 
 .footer {
-  height: 164px;
+  height: 110px;
   background-color: #dd1b57;
   margin-top: 100px;
-  padding-top: 61px;
+  padding-top: 25px;
 }
 .footer__wrap {
   max-width: 1140px;
