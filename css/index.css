@@ -93,6 +93,47 @@ button, input, select, textarea {
   display: none;
 }
 
+.menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 121px auto 10px;
+  background-color: lightcyan;
+}
+
+.menu__list__item__link {
+  display: block;
+  padding: 10px 20px;
+}
+.menu__list__item__link:hover {
+  background-color: #ebebeb;
+  color: #666;
+}
+.menu__list__drop-menu {
+  position: absolute;
+  top: 256px;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  visibility: hidden;
+  opacity: 0;
+}
+.menu__list__drop-menu__item--link {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  padding: 5px 20px;
+}
+.menu__list__drop-menu__item--link:hover {
+  background-color: lightcyan;
+}
+.menu__list__drop-menu.is-show {
+  visibility: visible;
+  opacity: 1;
+  background-color: #ebebeb;
+}
+
 .footer {
   height: 110px;
   background-color: #dd1b57;

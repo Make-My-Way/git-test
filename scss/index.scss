@@ -91,6 +91,62 @@ color: $linkcolor;
   // ↑PC版では非表示
 }
 
+// メガメニューのドロップダウン
+
+.menu {
+  display: flex;
+  justify-content: center;
+  margin: 121px auto 10px;
+  background-color: lightcyan;
+}
+
+.menu__list {
+  &__item__link {
+    display: block;
+    padding: 10px 20px;  
+  }
+
+  &__item__link:hover {
+    background-color: #ebebeb;
+    color: #666;
+  }
+
+  &__drop-menu {
+    position: absolute;
+    top: 256px;// topなくても良さそうだけど、位置指定ができなかった場合の為に記載しておく
+    transition: all 1.0s;  
+    
+    visibility: hidden;
+    opacity: 0;
+    // これで一旦非表示。
+
+
+    &__item--link {
+      // background-color: #ebebeb;　非表示前の確認用
+      transition: all 0.3s;
+      padding: 5px 20px;
+    }
+
+    &__item--link:hover {
+      background-color: lightcyan;
+    }
+
+    // &__item--link.is-show {
+    //   display: block;
+    //   background-color: #ebebeb;
+    // }
+  }
+
+  &__drop-menu.is-show {
+    visibility: visible;
+    opacity: 1;
+    // ↑これで再表示。
+
+    background-color: #ebebeb;
+
+  }
+}
+
 
 // PCフッターここから
 .footer {

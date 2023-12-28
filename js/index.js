@@ -1,18 +1,20 @@
-window.addEventListener('load', function () {
-  // ハンバーガーメニューの処理
-  var hamburgerButton = document.querySelector('.header__hamburger');
-  var hamburgerMenu = document.querySelector('.header__gnav__list');
-  var hamburgerBars = document.querySelectorAll(".header__hamburger--bar");
-  //↑を追加してハンバーガーメニューのバーもセレクタとして適用させた。Allで複数セレクタに適用させた。
+document.addEventListener('DOMContentLoaded', function () {
+  var parentMenuItems = document.querySelectorAll('.menu__list__item');
 
-  hamburgerButton.addEventListener('click', function () {
-    hamburgerMenu.classList.toggle('is-show');
+  parentMenuItems.forEach(function (parentMenuItem) {
+    parentMenuItem.addEventListener('mouseover', function () {
+      var dropMenu = parentMenuItem.querySelector('.menu__list__drop-menu');
+      if (dropMenu) {
+        dropMenu.classList.add('is-show');
+      }
+    });
 
-    // ハンバーガーメニューのバーの動きを指示
-    hamburgerBars.forEach(function (element) {
-      element.classList.toggle('is-show');
+    parentMenuItem.addEventListener('mouseout', function () {
+      var dropMenu = parentMenuItem.querySelector('.menu__list__drop-menu');
+      if (dropMenu) {
+        dropMenu.classList.remove('is-show');
+      }
     });
   });
 });
 
-// ChatGPTで正しいか確認した！
