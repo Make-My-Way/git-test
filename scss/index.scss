@@ -100,7 +100,7 @@ color: $linkcolor;
   background-color: lightcyan;
 
   position: relative;
-  z-index: 2;// これで少し浮かせた存在にし、ドロップダウンメニューがレイアウトに影響しない様にする
+  // z-index: 2;// これで少し浮かせた存在にし、ドロップダウンメニューがレイアウトに影響しない様にする
 }
 
 .menu__list {
@@ -123,7 +123,7 @@ color: $linkcolor;
     visibility: hidden;
     opacity: 0;
     // これで一旦非表示。
-    z-index: 3;// これでメニューよりも浮かせて、よりレイアウトに影響しないにした
+    // z-index: 3;// これでメニューよりも浮かせて、よりレイアウトに影響しないにした
 
     &__item--link {
       // background-color: #ebebeb;　非表示前の確認用
@@ -143,6 +143,119 @@ color: $linkcolor;
     background-color: #ebebeb;// 表示された際の背景色を指定
     // z-indexも効いていること確認済
   }
+}
+
+// モーダルボタン
+.modal-button {
+  background: orange;
+  border-radius: 12px;
+  box-shadow: 2px 4px 6px 3px rgba(0, 0, 0, .24);
+  border: 1px solid orange;
+  font-size: 16px;
+  line-height: 1.6;
+  display: block;
+  padding: 12px 20px;
+  color: #fff;
+  text-align: center;
+  margin: 0;
+
+  cursor: pointer;
+  appearance: none;
+  outline: none;
+}
+
+/* グレー背景 */
+.layer {
+  background: rgba(0, 0, 0, .2); // 背景を薄くする
+  width: 100%;
+  height: 100%;
+  position: fixed; /* 画面に固定するために指定 */
+  top: 0;
+  left: 0;
+
+  // これで非表示
+  z-index: -1;// これで初期状態(非表示)では最背面に配置したい為
+  opacity: 0;
+  visibility: hidden;
+}
+
+.layer.is-show {
+  z-index: 999;
+  opacity: 1;
+  visibility: visible;
+  // これで表示設定
+}
+
+
+/* モーダルコンテンツ */
+.modal {
+  position: relative;
+  margin-right: auto;
+  margin-left: auto;
+  width: 80%;
+  min-width: 440px;
+
+  &__inner {
+    margin-top: 125px;
+    margin-bottom: 125px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    background: #fff;
+    box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.25);/* モーダルにシャドウをかける */
+    border-radius: 13px; /* モーダルの角を丸める */
+    display: block;
+    padding: 21px 8px 21px;
+    height: auto;
+  }
+
+  &__content {
+    padding-top: 15px;
+    padding-bottom: 23px;
+  }
+
+  // モーダル×ボタン
+  &__button-wrap {
+    position: absolute;
+    right: 10px;
+    top: -28px;
+    display: inline-flex;
+  }
+}
+
+.close-button {
+  position: relative;
+  width: 39px;
+  height: 39px;
+  background: orange;
+  border-radius: 50%;
+  padding: 0;
+  border: transparent;
+  
+  cursor: pointer;
+  appearance: none;
+  outline: none;
+}
+
+.button-bar {
+  width: 25px;
+  height: 2px;
+  background: #fff;
+  display: inline-block;
+  position: absolute;
+  left: calc(50% - 12px);
+  top: 50%;
+  border-radius: 20px;
+}
+
+.button-bar:nth-child(1) {
+  // .close-button span:nth-child(1)でもいける
+  transform: rotate(45deg) translate(-1px, -1px);
+}
+
+.button-bar:nth-child(2) {
+  // .close-button span:nth-child(2)でもいける
+  transform: rotate(-45deg) translate(1px, -1px);
 }
 
 

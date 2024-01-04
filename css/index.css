@@ -103,7 +103,6 @@ button, input, select, textarea {
   margin: 121px auto 10px;
   background-color: lightcyan;
   position: relative;
-  z-index: 2;
 }
 
 .menu__list__item__link {
@@ -121,7 +120,6 @@ button, input, select, textarea {
   transition: all 1s;
   visibility: hidden;
   opacity: 0;
-  z-index: 3;
 }
 .menu__list__drop-menu__item--link {
   -webkit-transition: all 0.3s;
@@ -135,6 +133,116 @@ button, input, select, textarea {
   visibility: visible;
   opacity: 1;
   background-color: #ebebeb;
+}
+
+.modal-button {
+  background: orange;
+  border-radius: 12px;
+  -webkit-box-shadow: 2px 4px 6px 3px rgba(0, 0, 0, 0.24);
+          box-shadow: 2px 4px 6px 3px rgba(0, 0, 0, 0.24);
+  border: 1px solid orange;
+  font-size: 16px;
+  line-height: 1.6;
+  display: block;
+  padding: 12px 20px;
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  cursor: pointer;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  outline: none;
+}
+
+/* グレー背景 */
+.layer {
+  background: rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 100%;
+  position: fixed; /* 画面に固定するために指定 */
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.layer.is-show {
+  z-index: 999;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* モーダルコンテンツ */
+.modal {
+  position: relative;
+  margin-right: auto;
+  margin-left: auto;
+  width: 80%;
+  min-width: 440px;
+}
+.modal__inner {
+  margin-top: 125px;
+  margin-bottom: 125px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  background: #fff;
+  -webkit-box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.25); /* モーダルにシャドウをかける */
+  border-radius: 13px; /* モーダルの角を丸める */
+  display: block;
+  padding: 21px 8px 21px;
+  height: auto;
+}
+.modal__content {
+  padding-top: 15px;
+  padding-bottom: 23px;
+}
+.modal__button-wrap {
+  position: absolute;
+  right: 10px;
+  top: -28px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.close-button {
+  position: relative;
+  width: 39px;
+  height: 39px;
+  background: orange;
+  border-radius: 50%;
+  padding: 0;
+  border: transparent;
+  cursor: pointer;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  outline: none;
+}
+
+.button-bar {
+  width: 25px;
+  height: 2px;
+  background: #fff;
+  display: inline-block;
+  position: absolute;
+  left: calc(50% - 12px);
+  top: 50%;
+  border-radius: 20px;
+}
+
+.button-bar:nth-child(1) {
+  -webkit-transform: rotate(45deg) translate(-1px, -1px);
+          transform: rotate(45deg) translate(-1px, -1px);
+}
+
+.button-bar:nth-child(2) {
+  -webkit-transform: rotate(-45deg) translate(1px, -1px);
+          transform: rotate(-45deg) translate(1px, -1px);
 }
 
 .footer {
