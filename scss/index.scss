@@ -91,60 +91,6 @@ color: $linkcolor;
   // ↑PC版では非表示
 }
 
-// メガメニューのドロップダウン
-
-.menu {
-  display: flex;
-  justify-content: center;
-  margin: 121px auto 10px;
-  background-color: lightcyan;
-
-  position: relative;
-  // z-index: 2;// これで少し浮かせた存在にし、ドロップダウンメニューがレイアウトに影響しない様にする
-}
-
-.menu__list {
-  &__item__link {
-    display: block; // これでpaddingが効く様になる
-    padding: 10px 20px;  
-  }
-
-  &__item__link:hover {
-    background-color: #ebebeb;
-    color: #666;
-  }
-
-  &__drop-menu {
-    position: absolute;// これでmenu__listから省いた存在になる(listのmargin/paddingとかがlist単位でのみ計算が走る)
-    top: auto;// 初期値がautoではあるが、念の為入力。autoにすることで親のbottom基軸となる為、真下に展開される。
-    // 参考URL　https://developer.mozilla.org/ja/docs/Web/CSS/top
-    transition: all 1.0s;// ドロップダウンメニューが開く時の動き指定
-    
-    visibility: hidden;
-    opacity: 0;
-    // これで一旦非表示。
-    // z-index: 3;// これでメニューよりも浮かせて、よりレイアウトに影響しないにした
-
-    &__item--link {
-      // background-color: #ebebeb;　非表示前の確認用
-      transition: all 0.3s;// ホバーした際の色付けの動き指定
-      padding: 5px 20px;
-    }
-
-    &__item--link:hover {
-      background-color: lightcyan;
-    }
-  }
-
-  &__drop-menu.is-show {
-    visibility: visible;
-    opacity: 1;
-    // ↑これで再表示。
-    background-color: #ebebeb;// 表示された際の背景色を指定
-    // z-indexも効いていること確認済
-  }
-}
-
 // モーダルボタン
 .modal-button {
   background: orange;
@@ -259,51 +205,6 @@ color: $linkcolor;
 }
 
 
-// PCフッターここから
-.footer {
-  height: 110px;
-  background-color: $maincolor;
-  margin-top: 100px;
-  padding-top: 25px;
-
-  &__wrap {
-    max-width: 1140px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left:15px;
-  }
-
-  &__gnav {
-    margin-bottom: 18px;
-    color: $text-color;  
-
-    &__list {
-      display: flex;
-      column-gap: 50px;
-      align-items: center;
-      
-      &--item {
-        font-size: 14px;
-        font-weight: bold;
-        line-height: 1;
-        letter-spacing: 0.05em;
-      }
-    }
-
-    &__link--active {
-      color: #FFFFFF;
-    }
-  }
-
-  &__copyright {
-    letter-spacing: 0.03em;
-    color: #FFFFFF;
-  }
-}
-
-
-
-
 /* モバイルここから */
 @media (max-width: 767px) {
 
@@ -407,7 +308,7 @@ color: $linkcolor;
   .header__gnav__list {
     width: 53%;
     height: 100%;
-    background-color: #ef8b8b;
+    background-color: $maincolor;
     /*赤い色の部分  */
 
     position: fixed;
@@ -444,30 +345,5 @@ color: $linkcolor;
     opacity: 1;
     /* ↑これで再表示。
     display:noneを使ってしまうと、使った要素にtransitionが適用されなくなる。 */
-  }
-
-  // SPフッターここから
-  .footer {
-    height: 120px;
-    margin-top: 60px;
-    padding-top: 40px;
-
-    &__inner {
-      margin-left: auto;
-      margin-right: auto;
-      /* ここでのmax-widthはいらないかな(元々367で入れていた為記載) 。wrapperと合わせたい為*/
-    }
-
-    &__gnav {
-      margin-bottom: 20px;
-
-      &__list {
-        column-gap: 35px;
-      }
-
-      &--item {
-        font-size: 12px;
-      }
-    }
   }
 }

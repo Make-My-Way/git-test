@@ -93,48 +93,6 @@ button, input, select, textarea {
   display: none;
 }
 
-.menu {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin: 121px auto 10px;
-  background-color: lightcyan;
-  position: relative;
-}
-
-.menu__list__item__link {
-  display: block;
-  padding: 10px 20px;
-}
-.menu__list__item__link:hover {
-  background-color: #ebebeb;
-  color: #666;
-}
-.menu__list__drop-menu {
-  position: absolute;
-  top: auto;
-  -webkit-transition: all 1s;
-  transition: all 1s;
-  visibility: hidden;
-  opacity: 0;
-}
-.menu__list__drop-menu__item--link {
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-  padding: 5px 20px;
-}
-.menu__list__drop-menu__item--link:hover {
-  background-color: lightcyan;
-}
-.menu__list__drop-menu.is-show {
-  visibility: visible;
-  opacity: 1;
-  background-color: #ebebeb;
-}
-
 .modal-button {
   background: orange;
   border-radius: 12px;
@@ -245,47 +203,6 @@ button, input, select, textarea {
           transform: rotate(-45deg) translate(1px, -1px);
 }
 
-.footer {
-  height: 110px;
-  background-color: #dd1b57;
-  margin-top: 100px;
-  padding-top: 25px;
-}
-.footer__wrap {
-  max-width: 1140px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 15px;
-}
-.footer__gnav {
-  margin-bottom: 18px;
-  color: #333;
-}
-.footer__gnav__list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-column-gap: 50px;
-     -moz-column-gap: 50px;
-          column-gap: 50px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-.footer__gnav__list--item {
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 1;
-  letter-spacing: 0.05em;
-}
-.footer__gnav__link--active {
-  color: #FFFFFF;
-}
-.footer__copyright {
-  letter-spacing: 0.03em;
-  color: #FFFFFF;
-}
-
 /* モバイルここから */
 @media (max-width: 767px) {
   .header__wrap {
@@ -373,7 +290,7 @@ button, input, select, textarea {
   .header__gnav__list {
     width: 53%;
     height: 100%;
-    background-color: #ef8b8b;
+    background-color: #dd1b57;
     /*赤い色の部分  */
     position: fixed;
     top: 0;
@@ -406,27 +323,6 @@ button, input, select, textarea {
     opacity: 1;
     /* ↑これで再表示。
     display:noneを使ってしまうと、使った要素にtransitionが適用されなくなる。 */
-  }
-  .footer {
-    height: 120px;
-    margin-top: 60px;
-    padding-top: 40px;
-  }
-  .footer__inner {
-    margin-left: auto;
-    margin-right: auto;
-    /* ここでのmax-widthはいらないかな(元々367で入れていた為記載) 。wrapperと合わせたい為*/
-  }
-  .footer__gnav {
-    margin-bottom: 20px;
-  }
-  .footer__gnav__list {
-    -webkit-column-gap: 35px;
-       -moz-column-gap: 35px;
-            column-gap: 35px;
-  }
-  .footer__gnav--item {
-    font-size: 12px;
   }
 }
 /*# sourceMappingURL=index.css.map */
