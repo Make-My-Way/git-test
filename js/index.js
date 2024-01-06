@@ -1,42 +1,13 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // モーダルボタンの要素を取得
-  const modalButton = document.querySelector('.js-modal-button');
+  // ローディング画面の要素を取得
+  const loadingScreen = document.getElementById('loading');
 
-  // モーダルを開閉する関数
-  function toggleModal() {
-    // グレー背景の要素を取得
-    const modalLayer = document.querySelector('.js-modal');
-
-    // グレー背景にis-showクラスをトグルして表示/非表示を切り替える
-    modalLayer.classList.toggle('is-show');
-
-    // グレー背景が表示されている場合、body要素にスクロールを禁止するクラスを追加
-    if (modalLayer.classList.contains('is-show')) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-  }
-
-  // モーダルボタンがクリックされたときにtoggleModal関数を実行
-  modalButton.addEventListener('click', toggleModal);
-
-  // ×ボタンの要素を取得
-  const closeButton = document.querySelector('.js-close-button');
-
-  // ×ボタンがクリックされたときにtoggleModal関数を実行
-  closeButton.addEventListener('click', toggleModal);
-
-  // グレー背景の要素を取得 同一コードがあるが、以下がないとグレー背景をクリックして反応しなくなる。
-  const modalLayer = document.querySelector('.js-modal');
-
-  // グレー背景がクリックされたときにtoggleModal関数を実行
-  modalLayer.addEventListener('click', function (event) {
-    // クリックされた要素が.modal__inner以下の要素である場合はtoggleModalを実行しない
-    if (!event.target.closest('.modal__inner')) {
-      toggleModal();
-    }
+  // コンテンツが読み込まれたらローディング画面を非表示にする
+  window.addEventListener('load', function () {
+    loadingScreen.style.opacity = '0';
+    setTimeout(() => {
+      loadingScreen.style.display = 'none';
+    }, 1000); // フェードアウトのアニメーション時間と合わせて設定(このコードでは、setTimeout 内の時間をフェードアウトのアニメーション時間と合わせています。現在は 1000 ミリ秒（1秒）に設定されていますが、アニメーション時間に合わせて調整してください。)
   });
 });
-
-// Chat GPTで上記コードを取得
+// ChatGPTでコード取得
