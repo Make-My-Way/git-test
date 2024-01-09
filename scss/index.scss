@@ -204,40 +204,86 @@ color: $linkcolor;
   transform: rotate(-45deg) translate(1px, -1px);
 }
 
+// ページトップボタン
 
-// ローディング画面
-#loading {
-  width: 100vw;
-  height: 100vh;
-  transition: all 1s;
-  background-color: #0bd;
-
-  // 以下のコードで画面全体に画面を表示させた
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 9999;// 他と競合しない様に浮かせた
-
-  .spinner {
-    width: 100px;
-    height: 100px;
-    margin: 200px auto;
-    background-color: #fff;
-    border-radius: 100%;
-    animation: sk-scaleout 1.0s infinite ease-in-out;
-    // 上の秒数とjsの秒数を合わせる(でいいはず)
-  } 
+body {
+  margin: 0;// これも基本部分に入れてしまった方がいいか検討する。それか、リセットCSSに入っている気がする。
 }
 
-/* ローディングアニメーション */
-@keyframes sk-scaleout {
-  0% {
-    transform: scale(0);
-  } 100% {
-    transform: scale(1.0);
-    opacity: 0;
+// セクション部分
+.sec-blue {
+  background-color: rgb(0, 140, 255, .5);
+  height: 800px;
+}
+
+.sec-yellow {
+  background-color: rgba(244, 244, 11);
+  height: 800px;
+}
+
+.sec-green {
+  background-color: rgb(129, 243, 129, .5);
+  height: 800px;
+}
+
+/* トップへ戻るボタン */
+.pagetop {
+  width: 64px;
+  height: 64px;
+  position: fixed;
+  bottom: 8%;
+  right: 2%;
+  transition: opacity .3s ease, visibility .3s ease;
+  opacity: 0; /* デフォルトでは表示を消します */
+  visibility: hidden; /* デフォルトでは表示を消します */
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 18px;
+    font-size: bold;
+    line-height: 1.3;
+    color: #333;
+    text-decoration: none;  
+  }
+
+  &__text {
+    padding-top: 15px;
+    position: relative;  
+  }
+
+  &__text::before {
+    content: "〈";
+    display: inline-block;
+    position: absolute;
+    top: -13px;
+    left: 50%;
+    transform: translateX(-50%) rotate(90deg);
+  }
+
+  &__text::after {
+    content: "〈";
+    display: inline-block;
+    position: absolute;
+    top: -7px;
+    left: 50%;
+    transform: translateX(-50%) rotate(90deg);
   }
 }
+
+// これで再表示設定
+.pagetop.fadeIn {
+  opacity: 1; /* フェードインアニメーション */
+  visibility: visible; /* ボタンを表示 */
+}
+
+
 
 
 

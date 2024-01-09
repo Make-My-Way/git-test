@@ -1,13 +1,36 @@
-document.addEventListener('DOMContentLoaded', function () {
-  // ローディング画面の要素を取得
-  const loadingScreen = document.getElementById('loading');
+// スムーズスクロール
+const headerHeight = document.querySelector('header').offsetHeight;
 
-  // コンテンツが読み込まれたらローディング画面を非表示にする
-  window.addEventListener('load', function () {
-    loadingScreen.style.opacity = '0';
-    setTimeout(() => {
-      loadingScreen.style.display = 'none';
-    }, 1000); // フェードアウトのアニメーション時間と合わせて設定(このコードでは、setTimeout 内の時間をフェードアウトのアニメーション時間と合わせています。現在は 1000 ミリ秒（1秒）に設定されていますが、アニメーション時間に合わせて調整してください。)
-  });
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const href = anchor.getAttribute('href');
+        const target = document.getElementById(href.replace('#', ''));
+        if (target) {
+            const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerHeight;
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+        }
+    });
 });
-// ChatGPTでコード取得
+
+// ページ外スクロール
+window.addEventListener('load', function () {
+    const url = new URL(location.href);
+    const hash = url.hash.slice(1);
+    const target = document.getElementById(hash);
+    if (target) {
+        const top = target.getBoundingClientRect().top + window.scrollY - headerHeight;
+        setTimeout(function () {
+            window.scrollTo({ top: 0 }, 0);
+        });
+        setTimeout(function () {
+            window.scrollTo({
+                top: top,
+                behavior: 'smooth'
+            });
+        });
+    }
+});
