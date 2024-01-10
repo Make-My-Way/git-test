@@ -283,6 +283,57 @@ body {
   visibility: visible; /* ボタンを表示 */
 }
 
+.balloon5 {
+  width: 100%;
+  margin: 1.5em 0;
+  overflow: hidden;
+}
+
+.balloon5 .faceicon {
+  float: left;
+  margin-right: -90px;
+  width: 80px;
+}
+
+.balloon5 .faceicon img {
+  width: 100%;
+  height: auto;
+  border: solid 3px #d7ebfe;
+  border-radius: 50%;
+}
+
+.balloon5 .chatting {
+  width: 100%;
+}
+
+.says {
+  position: relative;
+  display: inline-block;
+  background: #ff9158;
+  border-radius: 30px;
+  padding: 16px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.says:after {
+  content: "";
+  /* borderで三角形を作る */
+  border: 10px solid transparent;
+  border-top: 10px solid #ff9158;
+  /* 配置する */
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.says p {
+  margin: 0;
+  padding: 0;
+}
+
 /* モバイルここから */
 @media (max-width: 767px) {
   .header__wrap {
