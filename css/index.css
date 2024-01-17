@@ -93,6 +93,47 @@ button, input, select, textarea {
   display: none;
 }
 
+.footer {
+  height: 164px;
+  background-color: #dd1b57;
+  margin-top: 100px;
+  padding-top: 61px;
+}
+.footer__wrap {
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+}
+.footer__gnav {
+  margin-bottom: 18px;
+  color: #333;
+}
+.footer__gnav__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 50px;
+     -moz-column-gap: 50px;
+          column-gap: 50px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.footer__gnav__list--item {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1;
+  letter-spacing: 0.05em;
+}
+.footer__gnav__link--active {
+  color: #FFFFFF;
+}
+.footer__copyright {
+  letter-spacing: 0.03em;
+  color: #FFFFFF;
+}
+
 .modal-button {
   background: orange;
   border-radius: 12px;

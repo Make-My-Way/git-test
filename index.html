@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
     <!-- CSSファイルのリンク-->
     <link href="../css/index.css" rel="stylesheet">
+    <link href="../css/swiper-bundle.min.css" rel="stylesheet">
     <!-- ファビコンの指定-->
     <link rel="icon" type="image/png" href="./icon-192x192.png">
     <link rel="apple-touch-icon" type="image/png" href="./apple-touch-icon-180x180.png">
@@ -43,14 +44,18 @@
         </div>
       </div>
     </header>
-    <main><!--吹き出しはじまり-->
-      <div class="balloon5">
-        <div class="faceicon"><img src="../img/ririka1.jpg"></div>
-      </div>
-      <div class="chatting">
-        <div class="says">
-          <p>★文章を入れる★</p>
+    <main>
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="../img/ririka1.jpg" alt=""></div>
+          <div class="swiper-slide"><img src="../img/ririka2.jpg" alt=""></div>
+          <div class="swiper-slide"><img src="../img/ririka3.jpg" alt=""></div>
+          <div class="swiper-slide"><img src="../img/ririka4.jpg" alt=""></div>
         </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-scrollbar"></div>
       </div>
     </main>
     <footer class="footer">
@@ -65,7 +70,7 @@
         <p class="footer__copyright"><small>&copy;START</small></p>
       </div>
     </footer>
-    <!-- JavaScriptファイルのリンク-->
+    <script src="../js/swiper-bundle.min.js"></script>
     <script src="../js/index.js"></script>
   </body>
 </html>

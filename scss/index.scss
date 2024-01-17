@@ -91,6 +91,49 @@ color: $linkcolor;
   // ↑PC版では非表示
 }
 
+// PCフッターここから
+.footer {
+  height: 164px;
+  background-color: $maincolor;
+  margin-top: 100px;
+  padding-top: 61px;
+
+  &__wrap {
+    max-width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left:15px;
+  }
+
+  &__gnav {
+    margin-bottom: 18px;
+    color: $text-color;  
+
+    &__list {
+      display: flex;
+      column-gap: 50px;
+      align-items: center;
+      
+      &--item {
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 1;
+        letter-spacing: 0.05em;
+      }
+    }
+
+    &__link--active {
+      color: #FFFFFF;
+    }
+  }
+
+  &__copyright {
+    letter-spacing: 0.03em;
+    color: #FFFFFF;
+  }
+}
+
+
 // モーダルボタン
 .modal-button {
   background: orange;
@@ -334,6 +377,7 @@ body {
   margin: 0;
   padding: 0;
 }
+
 
 
 
