@@ -737,6 +737,7 @@ button.swiper-pagination-bullet {
 .swiper {
   height: 500px;
   width: 500px;
+  margin-bottom: 800px;
 }
 
 .swiper-slide > img {

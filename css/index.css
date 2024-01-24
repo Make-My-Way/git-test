@@ -375,6 +375,25 @@ body {
   padding: 0;
 }
 
+.section {
+  border: solid 1px red;
+  width: 100%;
+  height: 200px;
+  margin-bottom: 500px;
+  opacity: 0;
+  -webkit-transform: rotate(45deg) scale(0.8);
+          transform: rotate(45deg) scale(0.8);
+  -webkit-transition: opacity 0.5s ease, -webkit-transform 0.5s ease;
+  transition: opacity 0.5s ease, -webkit-transform 0.5s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease, -webkit-transform 0.5s ease;
+}
+.section.is-visible {
+  opacity: 1;
+  -webkit-transform: rotate(0) scale(1);
+          transform: rotate(0) scale(1);
+}
+
 /* モバイルここから */
 @media (max-width: 767px) {
   .header__wrap {
